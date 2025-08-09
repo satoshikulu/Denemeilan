@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Kulu İlan — Kulu Emlak Pazarı</title>
+  <meta name="description" content="Kulu İlan: Kulu'nun en basit ve anlaşılır emlak pazarı. Satılık ve kiralık ilanlar, telefonla kolay üyelik ve admin onaylı güvenli platform.">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#0ea5e9">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/index.html">
+        <span class="logo">🏠</span>
+        <span class="brand-text">
+          <strong>Kulu İlan</strong>
+          <small>Kulu Emlak Pazarı</small>
+        </span>
+      </a>
+      <nav class="nav-actions">
+        <a class="btn btn-subtle" href="/listings.html">İlanlara Bak</a>
+        <a class="btn" href="/login.html">Giriş Yap / Üye Ol</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-overlay"></div>
+      <div class="container hero-inner">
+        <h1>Kulu'da emlak alım-satım ve kiralama <span class="underline">artık çok basit</span></h1>
+        <p class="lead">Sadece telefon numarası ve ad-soyad ile kayıt ol. İlanını ekle, admin onayıyla yayına girsin.</p>
+        <div class="cta-grid">
+          <a class="cta-card sell" href="/ilan-ver.html?type=satilik">
+            <div class="cta-icon">📤</div>
+            <div>
+              <h3>Satmak istiyorum</h3>
+              <p>Evini, arsanı, dükkânını kolayca listele</p>
+            </div>
+          </a>
+          <a class="cta-card rent" href="/ilan-ver.html?type=kiralik">
+            <div class="cta-icon">📥</div>
+            <div>
+              <h3>Kiralamak istiyorum</h3>
+              <p>Kiralık ilanını birkaç adımda oluştur</p>
+            </div>
+          </a>
+        </div>
+        <div class="hero-actions">
+          <a class="btn btn-large" href="/listings.html">İlanlara Göz At</a>
+          <a class="btn btn-large btn-ghost" href="/login.html">Giriş / Üyelik</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Öne Çıkan İlanlar</h2>
+          <a href="/listings.html" class="link">Tümünü gör →</a>
+        </div>
+        <div id="featured-listings" class="listing-grid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="section section-muted">
+      <div class="container">
+        <h2>Mahallelere göre keşfet</h2>
+        <div id="neighborhood-list" class="neighborhood-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>Kulu İlan</strong>
+        <div class="muted">Kulu Emlak Pazarı</div>
+      </div>
+      <nav class="footer-nav">
+        <a href="/index.html">Ana Sayfa</a>
+        <a href="/listings.html">İlanlar</a>
+        <a href="/ilan-ver.html">İlan Ver</a>
+        <a href="/login.html">Giriş / Üye Ol</a>
+        <a href="/admin.html">Admin</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="/assets/js/utils.js"></script>
+  <script src="/assets/js/data.js"></script>
+  <script src="/assets/js/app.js"></script>
+  <script src="/assets/js/listings.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      renderFeaturedListings();
+      renderNeighborhoods();
+    });
+  </script>
+</body>
+</html>

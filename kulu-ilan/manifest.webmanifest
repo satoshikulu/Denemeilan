@@ -1,0 +1,12 @@
+{
+  "name": "Kulu İlan",
+  "short_name": "Kulu İlan",
+  "description": "Kulu Emlak Pazarı — Basit ve anlaşılır emlak platformu.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#0b1220",
+  "theme_color": "#0ea5e9",
+  "scope": "/",
+  "lang": "tr",
+  "dir": "ltr"
+}

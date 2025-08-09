@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>İlan Ver — Kulu İlan</title>
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#0ea5e9">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/index.html"><span class="logo">🏠</span><span class="brand-text"><strong>Kulu İlan</strong><small>Kulu Emlak Pazarı</small></span></a>
+      <nav class="nav-actions">
+        <a class="btn btn-subtle" href="/listings.html">İlanlara Bak</a>
+        <a class="btn" href="/login.html">Hesabım</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>Yeni İlan Oluştur</h2>
+        <div class="muted">Not: İlanlar admin onayı sonrası yayına alınır.</div>
+      </div>
+
+      <form id="post-form" class="form card">
+        <div class="form-row">
+          <label>İlan Başlığı
+            <input required id="post-title" type="text" maxlength="80" placeholder="Örn: Merkezde 3+1 geniş daire">
+          </label>
+          <label>Fiyat (TL)
+            <input required id="post-price" type="number" min="0" step="1000" placeholder="Örn: 1.250.000">
+          </label>
+        </div>
+
+        <div class="form-row">
+          <label>Tür
+            <select id="post-type" required>
+              <option value="satilik">Satılık</option>
+              <option value="kiralik">Kiralık</option>
+            </select>
+          </label>
+          <label>Kategori
+            <select id="post-category" required>
+              <option value="daire">Daire</option>
+              <option value="arsa">Arsa</option>
+              <option value="isYeri">İş Yeri</option>
+              <option value="müstakil">Müstakil</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="form-row">
+          <label>Oda Sayısı
+            <input id="post-rooms" type="text" placeholder="Örn: 3+1">
+          </label>
+          <label>Metrekare
+            <input id="post-area" type="number" min="0" step="1" placeholder="Örn: 120">
+          </label>
+        </div>
+
+        <label>Mahalle
+          <select id="post-neighborhood" required></select>
+        </label>
+
+        <label>Açıklama
+          <textarea required id="post-description" rows="4" placeholder="İlan detaylarını yazın"></textarea>
+        </label>
+
+        <label>Kapak Görseli (isteğe bağlı)
+          <input id="post-image" type="file" accept="image/*">
+        </label>
+
+        <button class="btn btn-large" type="submit">Gönder (Admin Onayına)</button>
+        <div id="post-msg" class="form-msg" role="status"></div>
+      </form>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div><strong>Kulu İlan</strong><div class="muted">Kulu Emlak Pazarı</div></div>
+      <nav class="footer-nav">
+        <a href="/index.html">Ana Sayfa</a>
+        <a href="/listings.html">İlanlar</a>
+        <a href="/login.html">Hesabım</a>
+        <a href="/admin.html">Admin</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="/assets/js/utils.js"></script>
+  <script src="/assets/js/data.js"></script>
+  <script src="/assets/js/app.js"></script>
+  <script src="/assets/js/listings.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', initPostPage);
+  </script>
+</body>
+</html>
