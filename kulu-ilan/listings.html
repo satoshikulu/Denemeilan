@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>İlanlar — Kulu İlan</title>
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#0ea5e9">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/index.html"><span class="logo">🏠</span><span class="brand-text"><strong>Kulu İlan</strong><small>Kulu Emlak Pazarı</small></span></a>
+      <nav class="nav-actions">
+        <a class="btn btn-subtle" href="/ilan-ver.html">İlan Ver</a>
+        <a class="btn" href="/login.html">Giriş / Üyelik</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <div class="filters">
+        <select id="filter-type">
+          <option value="">Tür: Tümü</option>
+          <option value="satilik">Satılık</option>
+          <option value="kiralik">Kiralık</option>
+        </select>
+        <select id="filter-neighborhood">
+          <option value="">Mahalle: Tümü</option>
+        </select>
+        <input id="filter-query" type="search" placeholder="Ara: başlık, açıklama..." />
+        <button class="btn" id="apply-filters">Filtrele</button>
+      </div>
+
+      <div id="listings" class="listing-grid" aria-live="polite"></div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div><strong>Kulu İlan</strong><div class="muted">Kulu Emlak Pazarı</div></div>
+      <nav class="footer-nav">
+        <a href="/index.html">Ana Sayfa</a>
+        <a href="/listings.html">İlanlar</a>
+        <a href="/ilan-ver.html">İlan Ver</a>
+        <a href="/login.html">Giriş / Üyelik</a>
+        <a href="/admin.html">Admin</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="/assets/js/utils.js"></script>
+  <script src="/assets/js/data.js"></script>
+  <script src="/assets/js/app.js"></script>
+  <script src="/assets/js/listings.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      populateNeighborhoodFilter();
+      renderAllListings();
+      document.getElementById('apply-filters').addEventListener('click', renderAllListings);
+    });
+  </script>
+</body>
+</html>
