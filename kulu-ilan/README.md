@@ -1,20 +1,27 @@
-# Kulu İlan — Kulu Emlak Pazarı
+# Kulu İlan • Kulu Emlak Pazarı
 
-Basit, anlaşılır ve mobil odaklı statik web uygulaması. Demo amaçlı yerel depolama (LocalStorage) ile çalışır; gerçek sistem için Supabase ile kimlik ve veri katmanı eklenebilir.
-
-## Özellikler
-- Telefon + Ad Soyad ile üyelik başvurusu (admin onaylı)
-- Onaylı kullanıcılar ilan oluşturabilir; ilanlar admin onayına düşer
-- İlan listesi, filtreleme ve ilan detay sayfası
-- PWA (manifest + service worker) — Kolayca APK/IPA dönüştürmeye uygun
+- Frontend: `frontend/` (React + Vite + Tailwind). Netlify’ye deploy.
+- Backend: `server/` (Express). Render’a deploy.
+- Veritabanı: Supabase (SQL tabloları `server/README.md`).
 
 ## Geliştirme
-Statik dosyalar `index.html` ile doğrudan açılabilir. Bir HTTP sunucu ile servis etmek daha sağlıklıdır.
 
-Netlify deploy için kök dizini seçmek yeterli.
+- Frontend
+  - `cd frontend && npm i`
+  - `npm run dev`
+- Backend
+  - `cd server && cp .env.example .env` ve Supabase değişkenlerini doldur
+  - `npm i && npm start`
 
-## Admin Demo
-- Admin şifresi: `1234`
+## Önemli Akışlar
+- Kayıt: Telefon + Ad Soyad -> `/register` API -> `users.is_approved=false`
+- İlan: Form -> `/listings` API -> `listings.is_approved=false`
+- Admin: Manuel onay -> yayın (frontend’de `/admin` sayfası maket)
 
-## Not
-Bu demo sürümde veriler tarayıcı LocalStorage'ında tutulur ve sadece aynı tarayıcıda görünür. Backend eklemek için Supabase tablo şemaları ekleyin ve `assets/js/` altındaki modülleri API çağrılarına uyarlayın.
+## Deploy
+- Netlify: `frontend` klasöründen deploy, build: `npm run build`, publish: `dist/`
+- Render: `server` klasöründen Web Service, Start: `node src/index.js`
+- Supabase: `server/README.md` içindeki SQL’i çalıştır
+
+## PWA / Mobil
+- Frontend Vite PWA eklentisi eklenebilir. Alternatif: Capacitor ile APK/IPA üretilebilir.
